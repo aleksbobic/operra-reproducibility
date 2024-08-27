@@ -32,6 +32,14 @@
 -   [ ] Overleaf
 -   [ ] Other (e.g., Jupyter notebooks)
 
+### Do you use version controlled repositories like Git?
+*Multiple responses are possible*
+
+-   [ ] Gitlab
+-   [ ] Github
+-   [ ] Other
+-   [ ] If not, how do you share code? 
+
 ### What of these programming languages do you use?
 *Multiple responses are possible*
 
