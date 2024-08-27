@@ -1,7 +1,7 @@
 # Workshop on Quarto November 07, 2024 at UNIGE
 
 
-[_TOC_]
+[TOC]
 
 ## Topics
 
