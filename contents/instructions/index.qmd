@@ -11,32 +11,32 @@ To follow along in the hands-on part of the workshop, please install ```Quarto``
 
 Recent versions of RStudio have built-in support for ```Quarto```. Therefore, the simplest way to use it is to install recent versions of R (we recommend version 4.4) and RStudio by following the instructions at <https://posit.co/download/rstudio-desktop/>.
 
-To render documents in PDF format, ```Quarto``` needs to be able to access ```LaTeX```. If you do not already have ```LaTeX``` installed, you can install ```TinyTex``` by typing the following in your **terminal**:
+To render documents in PDF format, ```Quarto``` needs to be able to access ```LaTeX```. If you do not already have ```LaTeX``` installed, you can install the light-weight ```TinyTex``` by typing the following in your **Terminal**:
 
 ```bash
 quarto install tinytex
 ```
 
-Additional instructions, if necessary, can be found here: <https://quarto.org/docs/output-formats/pdf-basics.html>
+Additional instructions regarding ````LaTeX```, if necessary, can be found here: <https://quarto.org/docs/output-formats/pdf-basics.html>
 
 
 ## Stand-alone installation (optional)
 
-In the course we will mostly use R and RStudio for demonstration, but ```Quarto``` can also be used with Python instead of R and with VS Code, Jupyter Notebooks or other development environments instead of RStudio. If this is of interest to you, the following page is a good starting point: <https://quarto.org/docs/get-started/hello/vscode.html>
+In the workshop we will use R and RStudio for demonstration, but ```Quarto``` can also be used with Python instead of R and with VS Code, Jupyter Notebooks or other development environments instead of RStudio. If this is of interest to you, the following page is a good starting point: <https://quarto.org/docs/get-started/hello/vscode.html>
 
 Please also make sure to have a working version of LaTeX installed (as above). 
 
 
-## Working from the R Posit cloud 
-If you do not won't to install anything in your computer you can also work from the cloud. Sign up at the **Posit Cloud** https://login.posit.cloud (alternatively, download and install [R](https://www.r-project.org/), [Rstudio desktop](https://posit.co/download/rstudio-desktop/) and [Quarto](https://quarto.org/) on your computer).
+## Alternative: working from the R Posit cloud 
+If you do not want to install anything in your computer you can also use a cloud version of R and RStudio. Sign up at the **Posit Cloud** <https://login.posit.cloud> and:
 
--  To use Posit cloud you will need to register with your email address and give a password. 
+-  register with your email address and give a password;
+-  select the "Free Cloud" subscription option.
 -  Once logged in, go to your workspace and click on `New Project` (top right corner), then choose `New RStudio Project`. 
 
 
 ## Installing additional dependencies and packages
-Type the following code in the R studio console (copy and paste the code below). The installation may take a few minutes. 
-
+We will use the following additional R packages in the workshop. You can install them on the spot or beforehand by typing the following code in the **R console**: 
 ```r
 install.packages(c('quarto', 'dplyr', 'ggplot2'))
 ``` 
