@@ -34,7 +34,7 @@ website:
           - text: "Demo"            
             href: contents/demo/index.qmd
           - text: "Sharing"            
-            href: contents/slides_part3/index.qmd                 
+            href: contents/slides_sharing/index.qmd                 
                  
 format:
     html:         

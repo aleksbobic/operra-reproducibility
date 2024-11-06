@@ -1,8 +1,6 @@
 ---
 title: "Sharing and Publishing"
 subtitle: "Workflows for dynamically generated reports"
-#date: "November 07, 2024"
-image-height: 10px
 author: "Fabio Molo and Gorka Fraga Gonzalez"
 editor: visual
 preview-links: true
@@ -22,8 +20,8 @@ format:
       data-background-opacity: "0.8"
 ---
 
-
 ## Sharing scenarios
+
 <style> .font-small {  font-size: 0.8em;} </style>
 
 These are some frequent use cases:
@@ -54,12 +52,28 @@ These are some frequent use cases:
 
 ## Persistent identification
 
-A persistent identifier (e.g., DOI) enable our reports to be `reused` and `found` in time. It is required so our publications are citable
+A persistent identifier (e.g., DOI) enable our reports to be `reused` and `found` in time. 
+
+Required to make our resources `citable`
 
 #### Where can I get a DOI ?
 
 -   Data repositories (e.g., Zenodo, OSF, Ebrains...)
 -   Journals and preprint platforms
+
+
+-------
+
+### Popular generalist DOI-enabling repositories 
+
+#### [Zenodo](https://zenodo.org/)
+- Free. 50 GB upload limit per dataset (up to 200Gb upon request). 
+- Hosted by CERN. The data stays in Switzerland. 
+
+#### [Open Science Framework (OSF)](https://osf.io/)
+- Free. Private projects limited to 5 GB and public projects to 50 GB
+- Default storage location in US, but also servers in Canada, Germany and Australia 
+
 
 ------------------------------------------------------------------------
 
@@ -86,7 +100,11 @@ Robustness check for a Nat. Hum. Behav [initiative](https://www.nature.com/artic
 
 :::: {.column width="50%"}
 ::: font-small
-<br> <br> The README.md file has a link to the ZENODO entry with a DOI and citation information.
+<br> <br>
+
+Each release includes assets (zipped source code) and a .json with the release metadata
+
+The README.md file has a link to the ZENODO entry with a DOI and citation information.
 :::
 ::::
 
@@ -95,11 +113,27 @@ Robustness check for a Nat. Hum. Behav [initiative](https://www.nature.com/artic
 ##### [Zenodo entry](https://zenodo.org/records/13748512)
 
 ::: {.column width="50%"}
-
 ![](images/clipboard-664766473.png){width="500px" fig-align="left"}
 :::
 
 ::: {.column .font-small width="50%"}
-<br><br>
-A citable Zenodo entry with a DOI and the content of the repository release in a .zip file
+<br><br> A citable Zenodo entry with a DOI and the content of the repository release in a .zip file
 :::
+
+--------
+
+### Preregistration in Open Science Framework (OSF)
+
+- OSF feature to [preregister](https://help.osf.io/article/145-preregistration) your research plan
+- It can be private and released upon project completion 
+- OSF [templates](https://help.osf.io/article/229-select-a-registration-template) can help structure your report
+- Enhances visibility, `rigor and transparency` of your 
+
+
+------ 
+
+<br>
+<br>
+Open Science: 
+
+> “as open as possible, as closed as necessary”
