@@ -66,15 +66,18 @@ Required to make our resources `citable`
 
 ### Popular generalist DOI-enabling repositories 
 
+::: {.fragment}
+
 #### [Zenodo](https://zenodo.org/)
 - Free. 50 GB upload limit per dataset (up to 200Gb upon request). 
 - Hosted by CERN. The data stays in Switzerland. 
-
-#### [Open Science Framework (OSF)](https://osf.io/)
+::: 
+::: {.fragment}
+#### [Open Science Framework (OSF)](https://osf.io/) 
 - Free. Private projects limited to 5 GB and public projects to 50 GB
 - Default storage location in US, but also servers in Canada, Germany and Australia 
 
-
+:::
 ------------------------------------------------------------------------
 
 ## Git repositories and DOIs
