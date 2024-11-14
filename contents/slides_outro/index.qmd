@@ -1,5 +1,5 @@
 ---
-title: "Sharing and Publishing"
+title: "Outro: Sharing and Publishing"
 subtitle: "Workflows for dynamically generated reports"
 author: "Fabio Molo and Gorka Fraga Gonzalez"
 editor: visual
@@ -11,16 +11,11 @@ listing:
   type: table
   contents: 'slides'
   id: 'slides'
-
 ---
 
-
-<iframe allowfullscreen  class="pdf" src="Sharing and Publishing.pdf#toolbar=0&navpanes=0&scrollbar=0"         width="100%" 
+<iframe allowfullscreen  class="pdf" src="Sharing and publishing.pdf"  width="100%" 
         height="700px" 
         style="border: 2px solid black;" >
 </iframe>
 
- 
 #### Go to online slides in full screen
-
- 
