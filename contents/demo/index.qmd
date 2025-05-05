@@ -1,5 +1,6 @@
 ---
-title: Demo
+title: Reproducible and Dynamic Reporting with R and Quarto
+subtitle: Demo
 format:
   html:
     toc-depth: 4
@@ -12,7 +13,7 @@ bibliography: references.bib
 
 This demo requires R and Quarto Visit the [instructions](../instructions/index.qmd) page to get ready.
 
-# Demo I - Create your own report
+# Part I - Create your own report
 
 ## 1. Install additional dependencies and packages
 
@@ -60,13 +61,43 @@ format:
 
 ## 3. Create the report content
 
-### Text chunks
+### Text
 
-Quarto uses [Markdown syntax](https://quarto.org/docs/authoring/markdown-basics.html) to write and format text.
+Quarto uses Markdown syntax to structure and format text. For example,
+
+```markdown
+# This is a title
+
+Two stars will render a word **bold**. 
+
+We can also create lists:
+
+- Element 1
+- Element 2
+
+A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
+
+> An impressive quote
+```
+
+produces
+
+# This is a title
+
+Two stars will render a word **bold**. 
+
+We can also create lists:
+
+- Element 1
+- Element 2
+
+A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
+
+> An impressive quote
 
 ### Code chunks
 
-The following [code chunks](https:/quarto.org/docs/computations/r.html) have executable code to perform different actions on the data
+[Code chunks](https:/quarto.org/docs/computations/r.html) contain executable code to perform different actions on the data.
 
 ::: {#tip-chunks .callout-tip collapse="false"}
 #### Code execution options
@@ -76,7 +107,7 @@ The code chunks are delimited by ```` ```{r} ```` (you can specify other languag
 
 #### Load libraries
 
-Let us first load all necessary libraries. [Copy the code below inside a "code chunk"]{style="color: red;"}
+Let us first load all necessary libraries. [Copy the code below inside a "code chunk".]{style="color: red;"}
 
 ```{r}
 #| warning: false
@@ -108,7 +139,7 @@ datclean <- dat |>
 We will now compute the most common name by year and sex.
 
 ```{r}
-summaries <- datclean |> 
+summaries <- datclean |>
   group_by(sex, year) |>
   top_n(n = 1, wt = births) |>
   arrange(year)
@@ -145,11 +176,11 @@ datclean |>
   theme_minimal()
 ```
 
-I can now refer to [@fig-names] in the text using `[@fig-label]`.
+We can now refer to [@fig-names] in the text using `[@fig-label]`.
 
 ### Inline code
 
-Now we can use this data_summary and [inline code](https://quarto.org/docs/computations/inline-code.html) to add a text describing the data using code to read some information from the table.
+We can use [inline code](https://quarto.org/docs/computations/inline-code.html) to dynamically insert data summaries into text.
 
 [Use code snippets such as those below in your Markdown text to describe the data]{style="color: red;"}
 
@@ -194,6 +225,8 @@ Now that you edit the QMD file with your report:
 
 ## 5. Refine the report
 
+Nobody knows all the options by heart, use the [Quarto documentation](https://quarto.org/docs/reference/)!
+
 Try to explore different options for code execution:
 
 -   [ ] Hide all
@@ -202,7 +235,7 @@ Try to explore different options for code execution:
 -   [ ] Hide the code reading the table, show the rest
 -   [ ] **Challenge** render the report as both an HTML document and as PDF
 
-# Demo II - Explore other examples
+# Part II - Explore other examples
 
 The are many examples of dynamically generated reports online. Try exploring the links below.
 
@@ -221,3 +254,5 @@ Try to reflect about the following questions:
 -   [ ] Can you access the output, rendered documents easily ?
 -   [ ] Do they use some advanced features for dynamic reporting or computational reproducibility?
 -   [ ] What would be the workflow to reproduce those reports?
+
+# References
