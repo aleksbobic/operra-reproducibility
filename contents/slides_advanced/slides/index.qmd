@@ -63,6 +63,7 @@ nocite: |
 -   How to make sure code still runs when **software versions** change?
     -   `Today`: R version 4.5, ggplot2 3.5.2 → `Next year`: R version ?, ggplot2 ?
     -   Solution: **Docker**
+- Very nice paper on such a workflow: @Peikert2021
 :::
 
 ------------------------------------------------------------------------
@@ -181,6 +182,7 @@ aromatics.yaml: sizzle.py garlic.txt chili.json
 
 ::::: columns
 ::: {.column width="75%"}
+::: incremental
 -   **Software containers** encapsulate computational environment
 
 -   Computational environment components:
@@ -193,7 +195,8 @@ aromatics.yaml: sizzle.py garlic.txt chili.json
 -   **Docker** is a popular tool for containerization
 
 -   **Rocker** is a Docker image for R (<https://rocker-project.org/>)
-
+:::
+::: fragment
 Dockerfile
 
 ``` dockerfile
@@ -203,6 +206,7 @@ FROM rocker/verse:4.4
 # Install R package versions at time when R 4.4 was up-to-date
 RUN install2.r ggplot2 dplyr kableExtra
 ```
+:::   
 :::
 
 ::: {.column width="25%"}
