@@ -73,7 +73,7 @@ format:
 <!-- ::: -->
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercises
+**Optional exercises**
 
 -   Also add your email and affiliation
 -   Render the report both as HTML and PDF
@@ -130,7 +130,7 @@ A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdow
 This type of text editing is different from WYSIWYG (*What you see is what you get*) editors, such as Microsoft Word. In RStudio, it is possible to switch between the `visual` and `source` modes (topleft corner of the editor). The `source` mode displays the raw code, while the `visual` tab shows a live preview of the formatted document and provides WYSIWYG-like interface. This makes it easier to see how your report will look when rendered and can be useful if you do not know certain Markdown syntax. Nevertheless, we recommend to use the `source` mode as the default as it displays the raw code.
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercise
+**Optional exercise**
 
 Include an image in your report. Use the visual mode to shrink it down and see how the code for resizing looks like.
 :::
@@ -149,7 +149,7 @@ Code chunks are delimited by ```` ```{r} ```` (you can specify other languages l
 
 ### Load libraries
 
-We first load all R packages that we will use in our analysis. Copy the code below inside a "code chunk".
+We first load all R packages that we will use in our analysis. Copy the code below inside a code chunk.
 
 ```{r}
 #| warning: false
@@ -160,7 +160,7 @@ library("kableExtra") # tables
 ```
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercise
+**Optional exercises**
 
 Explore different options for code execution:
 
@@ -197,14 +197,14 @@ summaries <- datclean |>
 
 ### Creating a table
 
-We can create a table summarizing our results using the `kable` function. There is either a basic version of `kabel` in the `knitr` package, or an extended version in the `kableExtra` package, which we loaded above.
+We can create a table summarizing our results using the `kable` function. There is either a basic version of `kable` in the [`knitr` package](https://yihui.org/knitr/), or an extended version in the [`kableExtra` package](https://github.com/haozhu233/kableExtra), which we loaded above.
 
 ```{r}
 summaries |>
   kable(caption = "Most common name of newborns in the city of Zurich by year and sex")
 ```
 
-Note that we could also have specified a table caption via the `tbl-cap` chunk option. Moreover, we could have specified `df-print: kable` in the YAML header to automatically apply `kable` when printing a data frame. For HTML reports, there is also the `df-print: paged` option that creates an interactive table. See <https://quarto.org/docs/computations/r.html#data-frames> for all possibilities.
+Note that we could also have specified a table caption via the `tbl-cap` chunk option. We could also have specified `df-print: kable` in the YAML header to automatically apply `kable` when printing a data frame. For HTML reports, there is also the `df-print: paged` option that creates an interactive table. See <https://quarto.org/docs/computations/r.html#data-frames> for all possibilities.
 
 ```{r}
 #| tbl-cap: "Most common name of newborns in the city of Zurich by year and sex"
@@ -214,7 +214,7 @@ summaries
 ```
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercises
+**Optional exercises**
 
 -   Make a table that displays the number of registered births per year
 -   Generate the table via the `df-print: kable` or the `df-print: paged` (when using HTML) option in the YAML header
@@ -246,10 +246,10 @@ datclean |>
 Note that we added chunk options to create a caption (`#| fig-cap: "Most common names of Zurich newborns in 2021-2024."`) and a label (`#| label: fig-label`). We can then refer to [@fig-names] in the text using `[@fig-label]`. Two other important options are `fig-height` and `fig-width` which allow us to specify the height and width of our figures. Here we have specified `fig-height: 5` which sets the height of the plot to 5 inches.
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercises
+**Optional exercises**
 
-- Change the height and width of your plot
-- Add a label to the previously generated table and refer to it in the text (table labels need to start with `tab` instead of `fig`!).
+-   Change the height and width of your plot
+-   Add a label to the previously generated table and refer to it in the text (beware that table labels start with `tab` instead of `fig`).
 :::
 
 ### Another plot
@@ -273,7 +273,7 @@ datclean |>
 ```
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercise
+**Optional exercise**
 
 Try it with your own name!
 :::
@@ -291,7 +291,7 @@ produces
 Note that, instead of performing computations within an inline code chunk, it is often advisable to perform computations in a separate code chunk, save the results to a variable, and then print the variable in the inline code chunk.
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercise
+**Optional exercise**
 
 Compute the total number of births in the data set and then display it via an inline code chunk.
 :::
@@ -321,7 +321,7 @@ A typical entry from a BibTeX bibliography file looks like this:
 }
 ```
 
-These files can either be created manually of with a reference manager program (e.g., [Zotero](https://www.zotero.org/)).
+These files can either be created manually o with a reference manager (e.g., [Zotero](https://www.zotero.org/)).
 
 ::: {.callout-tip collapse="false"}
 #### References in RStudio
@@ -333,7 +333,7 @@ To facilitate reference management in RStudio:
 :::
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercise
+**Optional exercise**
 
 Cite one of your favorite papers
 :::
@@ -348,20 +348,19 @@ sessionInfo()
 ```
 
 ::: {.callout-note appearance="minimal"}
-## Optional exercise
+**Optional exercise**
 
 Load another R package, re-render your report, and observe how the output of `sessionInfo()` changes
 :::
 
 # Practical tips
 
-This concludes a first introduction to dynamic reporting with Quarto. Here are some further tips 
+This concludes a first introduction to dynamic reporting with Quarto. Here are some further tips
 
 -   Nobody knows all the options by heart, use the [Quarto documentation](https://quarto.org/docs/reference/)!
 -   Re-render your reports often to spot errors quickly
 -   Use relative paths so that others can reproduce your report
--   Always add `sessionInfo()` or an equivalent at the bottom of your report to show which packages/environment were used to generate your report
-<!-- - When sharing your analyses, include a README file that documents all steps necessary to create your report -->
+-   Always add `sessionInfo()` or an equivalent at the bottom of your report to show details on the computational environment (e.g., package versions) used to generate your report <!-- - When sharing your analyses, include a README file that documents all steps necessary to create your report -->
 
 # Gallery (optional)
 
