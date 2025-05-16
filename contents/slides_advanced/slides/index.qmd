@@ -91,8 +91,6 @@ nocite: |
 -   **Git** (software) ≠ **GitHub**/**GitLab** (Git repository hosting services)
 
 -   Snapshots enable **persistently archiving** (with DOI) on data repositories (e.g., Zenodo)
-
-<!-- - Git repository: directory with `.git/` subdirectory -->
 :::
 ::::
 

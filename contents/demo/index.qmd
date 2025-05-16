@@ -222,7 +222,7 @@ summaries
 
 ### Plot the data
 
-Creating a plot in a code chunk, automatically inserts it into the rendered Quarto report. For example, we may want to plot the most common names between 2021 and 2024.
+Creating a plot in a code chunk automatically inserts it into the rendered Quarto report. For example, we may want to plot the most common names between 2021 and 2024.
 
 ```{r}
 #| label: fig-names
@@ -253,7 +253,7 @@ Note that we added chunk options to create a caption (`#| fig-cap: "Most common 
 :::
 
 ### Multiple plots
-Quarto can also nicely displays multiple plots, each with their own caption. For example, we may want to plot the occurrence of names over time. Here we choose Fabio, Samuel, and Gorka for one plot and Daniel and Sarah for another. 
+Quarto can also nicely display multiple plots simultaneously. For example, we may want to plot the occurrence of names over time in two plots. Here we choose Fabio, Samuel, and Gorka for one plot and Daniel and Sarah for the other. 
 
 ```{r}
 #| label: fig-names-over-time
@@ -287,8 +287,7 @@ datclean |>
   expand_limits(y = 0) +
   theme_minimal()
 ```
-
-Displaying the plots next to each other and having caption and subcaptions, can be specified with the `layout-ncol`, the `fig-cap`, and the `fig-subcap` chunk options.
+Since we specified the chunk option `layout-ncol: 2`, both plots are displayed next to each other. Additionally, caption and subcaptions can be specified with the `fig-cap` and the `fig-subcap` chunk options.
 
 ::: {.callout-note appearance="minimal"}
 **Optional exercise**

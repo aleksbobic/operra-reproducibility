@@ -5,7 +5,7 @@ The website for this workshop is: <https://crsuzh.pages.uzh.ch/workshop-quarto-2
 
 # Citation 
 Cite this workshop as
-> Molo, F., Fraga González, G., Pawel, S. 2025. Reproducible and Dynamic Reporting with R and Quarto - Getting started. Workshop at the University of Zurich.
+> Molo, F., Fraga González, G., Pawel, S. 2025. Reproducible and Dynamic Reporting with R and Quarto - Getting started. Workshop at the University of Zurich. <https://doi.org/10.5281/zenodo.14169002>
 
 A BibTeX entry is given by
 
@@ -15,7 +15,7 @@ A BibTeX entry is given by
   title        = {Workshop ``Reproducible and Dynamic Reporting with R and Quarto -- Getting started'' at UZH},
   month        = May,
   year         = 2025,
-  doi          = {},
+  doi          = {doi.org/10.5281/zenodo.14169002},
   url          = {https://crsuzh.pages.uzh.ch/workshop-quarto-2025-uzh/}
 }
 ```
