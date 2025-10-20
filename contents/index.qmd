@@ -23,11 +23,11 @@ listing:
   grid-columns: 3
   sort: false  
   contents: 
-    - ./instructions/*.qmd
-    - ./slides_intro/*.qmd
-    - ./demo_R/*.qmd
-    - ./slides_sharing/*.qmd
-    - ./slides_advanced/*.qmd
+    - /instructions/*.qmd
+    - /slides_intro/*.qmd
+    - /demo_R/*.qmd
+    - /slides_sharing/*.qmd
+    - /slides_advanced/*.qmd
     
 toc: false
 page-layout: full

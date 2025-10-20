@@ -13,7 +13,7 @@ format:
     embed-resources: true
     progress: true
     slide-number: true
-    footer: "Center for Reproducible Science | [home](../index.qmd)"
+    footer: "Center for Reproducible Science & Research Synthesis | [home](../index.qmd)"
     title-slide-attributes:
       data-background-size: contain
       data-background-position: bottom
