@@ -1,0 +1,166 @@
+---
+title: Hands-On Demo (Python)
+subtitle: Reproducible and Dynamic Reporting with Python and Quarto
+author:    
+  - name: "Peter Degen"
+    orcid: 0009-0004-0706-9200
+
+  - name: "Gorka Fraga González"
+    orcid: 0000-0002-1857-8607
+
+  - name: "Fabio Molo"
+    orcid: 0000-0001-9320-5854
+    
+  - name: "Samuel Pawel"
+    orcid: 0000-0003-2779-320X
+format:
+  html:
+    toc-depth: 4
+    df-print: paged
+  pdf: default
+execute:
+  eval: true
+engine: jupyter
+bibliography: ../demo_R/references.bib
+---
+
+This hands-on demo requires Python and Quarto. Visit the [instructions](../instructions/index.qmd) page to learn how to install them.
+
+
+# Creating a Quarto file
+
+1)  In the RStudio menu, go to `File > New File > Quarto document`
+2)  Use the default settings and enter a filename
+3)  Save the file with a .qmd filename extension
+4)  Click on the button `Render` with the blue arrow on top of the editor in RStudio
+5)  An .html file with the same name as your .qmd file should have been generated
+
+<h3>🎉 Congratulations, you have generated your first dynamic report! 🎊  </h3>
+
+We will now modify the report with our own content.
+
+# Editing the YAML header
+
+The YAML[^1] header delimited by (`---`) specifies options and metadata of your report. Add information about `author` and `date` (use `last-modified` to always display the latest date) and define the output format as either `pdf` or `html`. Be careful with *indentation*, YAML is sensitive to spacing! The header can be kept simple or it can contain a lot of information. An example:
+
+[^1]: YAML is an acronym for "Yet Another Markup Language"
+
+``` yaml
+---
+title: "Title of the report"
+subtitle: "Subtitle"
+date: last-modified # display the date of the last edit
+author: 
+  - name: "Author 1"
+    orcid: 1234-1234-1234-12345
+    affiliation:
+      - name: "University of Zurich"
+        city: "Zurich"
+  - name: "Author 2"
+    orcid: 5678-5678-5678-5678
+    affiliation:
+      - name: "University of Bern"
+        city: "Bern"
+format:
+  html:
+    toc: true # add a table of contents
+    toc-depth: 4 # show level 1-4 subheadings in the table of contents
+  pdf: default
+engine: jupyter
+---
+```
+
+<!-- ::: {#tip-chunks .callout-tip collapse="false"} -->
+
+<!-- #### Multiple output formats -->
+
+<!-- When specifying multiple outputs, clicking on the down-arrow next to `Render` allows you to change the output format (e.g., change from html to pdf) -->
+
+<!-- ::: -->
+
+::: {.callout-note appearance="minimal"}
+**Optional exercises**
+
+-   Also add your email and affiliation
+-   Render the report both as HTML and PDF
+:::
+
+Re-render your report to see the changes you just made.
+
+::: {.callout-tip collapse="false"}
+#### Render often
+
+When working on a dynamic report it is recommended to re-render the report often. This allows us to quickly spot errors and fix them on the fly. A useful keyboard shortcut for rendering is `Ctrl+Shift+K` (or `CMD+Shift+K` on Mac).
+:::
+
+# Editing the report content
+
+The two most important elements of a dynamic report are text and code.
+
+## Text
+
+Quarto uses Markdown syntax to structure and format text. For example,
+
+``` markdown
+# This is a title
+
+Two stars will render a word **bold**. 
+
+We can also create lists:
+
+- Element 1
+- Element 2
+
+A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
+
+> An impressive quote
+```
+
+produces
+
+<h2>This is a title</h2>
+
+<!-- HACK to not have the title in the TOC -->
+
+Two stars will render a word **bold**.
+
+We can also create lists:
+
+-   Element 1
+-   Element 2
+
+A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
+
+> An impressive quote
+
+This type of text editing is different from WYSIWYG (*What you see is what you get*) editors, such as Microsoft Word. In RStudio, it is possible to switch between the `visual` and `source` modes (topleft corner of the editor). The `source` mode displays the raw code, while the `visual` tab shows a live preview of the formatted document and provides WYSIWYG-like interface. This makes it easier to see how your report will look when rendered and can be useful if you do not know certain Markdown syntax. Nevertheless, we recommend to use the `source` mode as the default as it displays the raw code.
+
+::: {.callout-note appearance="minimal"}
+**Optional exercise**
+
+Include an image in your report. Use the visual mode to shrink it down and see how the code for resizing looks like.
+:::
+
+<!-- ![](https://upload.wikimedia.org/wikipedia/commons/7/74/A-Cat.jpg){fig-align="center" width="273"} -->
+
+## Code chunks
+
+[Code chunks](https://quarto.org/docs/computations/python.html) contain executable code and let you embed results directly into your text (e.g., data summaries, plots, or tables). Code chunks are automatically re-run when the document is rendered. If any code chunk fails, the entire document may fail to render. This encourages writing reproducible, error-free code.
+
+::: {.callout-tip collapse="false"}
+#### Code chunk options
+
+Code chunks are delimited by ```` ```{python} ```` (you can specify other languages like R, Julia, ObservableJS). For each code you can add *chunk options* to the code chunks with `#|`, for example `#| echo: false` will hide the code. In RStudio you can see the options available if you type `#|` and then press the TAB key on your keyboard. Many options can be set globally for the entire document on the YAML header (e.g., under `execute:`, under `html:`, or under `pdf:`).
+:::
+
+### Load libraries
+
+We first load all Python packages that we will use in our analysis. Copy the code below inside a code chunk.
+
+```{python}
+#| warning: false
+#| output: true
+import pandas as pd # data wrangling
+import matplotlib.pyplot as plt # plotting
+print(f"test")
+```
