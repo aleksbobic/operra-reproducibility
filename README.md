@@ -2,7 +2,7 @@
 
 Part of the OPeR-RA project.
 
-The website for this workshop is: <https://crsuzh.pages.uzh.ch/workshop-quarto-2025-unige>
+The website for this workshop is: 
 
 ## Citation
 
