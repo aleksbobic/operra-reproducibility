@@ -52,7 +52,7 @@ jupyterlab_server==2.28.0
 jupyterlab_widgets==3.0.16
 kiwisolver==1.4.9
 lark==1.3.1
-Mako==1.3.2.dev0
+Mako==1.3.12
 Markdown==3.5.2
 MarkupSafe==2.1.5
 matplotlib==3.10.7
@@ -80,9 +80,7 @@ pure_eval==0.2.3
 pycparser==2.23
 Pygments==2.19.2
 pyparsing==3.2.5
-python-apt==2.7.7+ubuntu4
 python-dateutil==2.9.0.post0
-python-debian==0.1.49+ubuntu2
 python-json-logger==4.0.0
 pytz==2025.2
 PyYAML==6.0.3
