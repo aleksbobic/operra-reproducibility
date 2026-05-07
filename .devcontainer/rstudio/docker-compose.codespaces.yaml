@@ -2,7 +2,13 @@ services:
   pyverse:
     image: ghcr.io/a1eksb/reproducability:rstudio
     build: !reset null
-    # Codespaces port forwarding is more reliable when the published port binds
-    # to all interfaces (instead of loopback-only as in the local compose file).
-    ports: !override
-      - "8787:8787"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - pyverse
