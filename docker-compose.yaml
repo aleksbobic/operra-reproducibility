@@ -11,3 +11,13 @@ services:
     volumes:
       - .:/home/rstudio/project
     restart: unless-stopped
+  site:
+    build: .
+    platform: linux/amd64
+    container_name: operra-site
+    working_dir: /home/rstudio/project/contents
+    command: quarto preview --host 0.0.0.0 --port 4200 --no-browser --no-execute
+    ports:
+      - "127.0.0.1:4200:4200"
+    volumes:
+      - .:/home/rstudio/project
