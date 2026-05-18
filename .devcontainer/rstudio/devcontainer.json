@@ -17,6 +17,12 @@
       "visibility": "private",
       "protocol": "http"
     },
+    "4200": {
+      "label": "Workshop site",
+      "onAutoForward": "notify",
+      "visibility": "private",
+      "protocol": "http"
+    },
     "8787": {
       "onAutoForward": "silent"
     }
