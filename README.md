@@ -1,4 +1,4 @@
-# SwissRN Workshop on Computational Reproducibility
+# SwissRN Workshop on Computational Reproducibility 😎
 
 Part of the OPeR-RA workshop series. 🚀
 
