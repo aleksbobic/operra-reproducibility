@@ -7,11 +7,35 @@ execute:
   eval: false
 ---
 
+## First-time git users: setup
 
+-   Create a **personal access token** in your Github user settings (with read & write privileges).
 
+-   **Save** the token (e.g. in a password manager).
 
+-   **Configure your local git** in a Terminal / Shell:
+    -   `git config --global user.email "you@example.com"`
+    -   `git config --global user.name "Your Name"`
+
+-   When asked, fill in the token as `password`. 
+
+## With git already set up
+
+- **Fork** the repository at <https://github.com/a1eksb/operra-reproducibility>.
+
+- **Clone** the repository to your local machine.
+
+- Adjust the README file by adding your name, ORCID, or any other information you find relevant. Save the changes.
+
+- **Commit** the changes. Provide a commit message.
+
+- **Push** the changes to your remote repository on Github.
+
+- Verify the changes on Github in the README.
 
 # Additional Resources
 
--   Happy Git with R: <https://happygitwithr.com>
+-   Install Git: <https://git-scm.com/install/>
+-   First-time Git setup: <https://git-scm.com/book/ms/v2/Getting-Started-First-Time-Git-Setup>
 -   The Turing Way — Version Control: <https://the-turing-way.netlify.app/reproducible-research/vcs>
+-   Happy Git with R: <https://happygitwithr.com>
