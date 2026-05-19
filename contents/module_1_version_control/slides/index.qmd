@@ -58,7 +58,7 @@ Solution: **Version control with Git**
 
 ::: incremental
 
-- MS Word, Google Docs, etc.
+- Google Docs, MS Sharepoint, etc.
 - Require a master document
 - Often scales poorly (to only a few participants)
 - Availablility of complete history questionable
@@ -137,7 +137,7 @@ Solution: **Version control with Git**
 
 ## Common Git operations
 
-![[<https://commons.wikimedia.org/wiki/File:Git_operations.svg>]{style="font-size:0.7em"}](img/Git_operations.png){fig-align="center" }
+![[<https://commons.wikimedia.org/wiki/File:Git_operations.svg>]{style="font-size:0.7em"}](img/Git_operations.png){fig-align="center"}
 
 ------------------------------------------------------------------------
 

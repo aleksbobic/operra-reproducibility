@@ -1,6 +1,6 @@
 ---
 title: "Hands-on: Dynamic Reporting with Python"
-author:    
+author:
   - name: "Peter Degen"
     orcid: 0009-0004-0706-9200
 format:
@@ -14,22 +14,21 @@ engine: jupyter
 bibliography: references.bib
 ---
 
-This hands-on requires Python and Quarto. Visit the [instructions](../../instructions/index.qmd) page to learn how to install them. We will further assume that you are using Quarto with VS Code (make sure you have the [Quarto extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto)), although most of this demo is editor-agnostic.
+This hands-on requires Python and Quarto. Visit the [instructions](../../instructions/index.qmd) page to learn how to use them in a Github codespace.
 
-
-# Creating a Quarto file
+# Create a new Quarto file
 
 1)  In VS Code, create a new file with the .qmd extension
 2)  Click on the button `Preview` on the top right corner of the editor or use the shortcut `Ctrl + Shift + K` to render a preview of the document
 3)  An .html file with the same name as your .qmd file should have been generated
 
-<h3>🎉 Congratulations, you have generated your first dynamic report! 🎊  </h3>
+<h3>🎉 Congratulations, you have generated your first dynamic report! 🎊  </h3>
 
 We will now modify the report with our own content.
 
 # Editing the YAML header
 
-The YAML[^1] header delimited by (`---`) specifies options and metadata of your report. Add information about `author` and `date` (use `last-modified` to always display the latest date) and define the output format as either `pdf` or `html`. Be careful with *indentation*, YAML is sensitive to spacing! The header can be kept simple or it can contain a lot of information. An example:
+The YAML[^1] header delimited by (`---`) specifies options and metadata of your report. Add information about `author` and `date` (use `last-modified` to always display the latest date) and define the output format as `html`. Be careful with *indentation*, YAML is sensitive to spacing! The header can be kept simple or it can contain a lot of information. An example:
 
 [^1]: YAML is an acronym for "Yet Another Markup Language"
 
@@ -38,22 +37,13 @@ The YAML[^1] header delimited by (`---`) specifies options and metadata of your 
 title: "Title of the report"
 subtitle: "Subtitle"
 date: last-modified # display the date of the last edit
-author: 
+author:
   - name: "Author 1"
     orcid: 1234-1234-1234-12345
-    affiliation:
-      - name: "University of Zurich"
-        city: "Zurich"
-  - name: "Author 2"
-    orcid: 5678-5678-5678-5678
-    affiliation:
-      - name: "University of Bern"
-        city: "Bern"
+    affiliation: "University of Zurich"
 format:
   html:
     toc: true # add a table of contents
-    toc-depth: 4 # show level 1-4 subheadings in the table of contents
-  pdf: default
 engine: jupyter
 ---
 ```
@@ -67,13 +57,18 @@ engine: jupyter
 <!-- ::: -->
 
 ::: {.callout-note appearance="minimal"}
-**Optional exercises**
+**Optional exercise**
 
 -   Also add your email and affiliation
--   Render the report both as HTML and PDF
 :::
 
 Re-render your report to see the changes you just made.
+
+::: {.callout-note appearance="minimal"}
+**Optional exercise**
+
+-   Try rendering the report as pdf instead of html. To do this, add `pdf: default` in the YAML header under `format:` at the same indentation level as `html:`.
+:::
 
 ::: {.callout-tip collapse="false"}
 #### Render often
@@ -92,7 +87,7 @@ Quarto uses Markdown syntax to structure and format text. For example,
 ``` markdown
 # This is a title
 
-Two stars will render a word **bold**. 
+Two stars will render a word **bold**.
 
 We can also create lists:
 
@@ -104,30 +99,7 @@ A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdow
 > An impressive quote
 ```
 
-produces
-
-<h2>This is a title</h2>
-
-<!-- HACK to not have the title in the TOC -->
-
-Two stars will render a word **bold**.
-
-We can also create lists:
-
--   Element 1
--   Element 2
-
-A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
-
-> An impressive quote
-
 This type of text editing is different from WYSIWYG (*What you see is what you get*) editors, such as Microsoft Word. In VS Code, rendering a .qmd file creates a new window next to your source code that shows a preview of the formatted document and provides a WYSIWYG-like interface.
-
-::: {.callout-note appearance="minimal"}
-**Optional exercise**
-
-Include an image in your report.
-:::
 
 <!-- ![](https://upload.wikimedia.org/wikipedia/commons/7/74/A-Cat.jpg){fig-align="center" width="273"} -->
 
@@ -183,6 +155,18 @@ datclean = dat.rename({
 datclean.replace({"sex": {"weiblich": "female", "männlich": "male"}}, inplace=True)
 ```
 
+
+::: {.callout-tip collapse="false"}
+#### Hide warnings in output
+
+You can hide all Python warnings from the output by adding the following to your YAML header:
+``` yaml
+execute:
+  warning: false
+```
+:::
+
+
 ### Summarizing the data
 
 We first compute the most common name by year and sex.
@@ -197,17 +181,12 @@ summaries_styled
 
 ### Creating a table
 
-We can create an interactive table summarizing our results using the [`itables`](https://mwouts.github.io/itables/quick_start.html) package.
+We can create an interactive table summarizing our results using the [`itables`](https://mwouts.github.io/itables/quick_start.html) package. See <https://quarto.org/docs/computations/python.html> for all options how to display tables from Python data frames.
 
 ```{python}
-itables.show(summaries_styled, caption="Most common name of newborns in the city of Zurich by year and sex")
+itables.show(summaries_styled, caption="Most common names of newborns in the city of Zurich by year and sex")
 ```
 
-::: {.callout-note appearance="minimal"}
-**Optional exercises**
-
--   Make a table that displays the number of registered births per year
-:::
 
 ### Plot the data
 
@@ -240,7 +219,7 @@ g.fig.subplots_adjust(top=0.85)
 plt.tight_layout()
 ```
 
-Note that we added chunk options to create a caption (`#| fig-cap: "Most common names of Zurich newborns in 2021-2024."`) and a label (`#| label: fig-label`). We can then refer to [@fig-names] in the text using `[@fig-label]`.
+Note that we can add chunk options to create a caption (`#| fig-cap: "Most common names of Zurich newborns in 2021-2024."`) and a label (`#| label: fig-label`). We can then refer to [@fig-names] in the text using `[@fig-label]`.
 
 ::: {.callout-note appearance="minimal"}
 **Optional exercises**
@@ -249,37 +228,51 @@ Note that we added chunk options to create a caption (`#| fig-cap: "Most common 
 -   Add a label to the previously generated table and refer to it in the text (beware that table labels start with `tab` instead of `fig`).
 :::
 
-### Multiple figures
+### Plot your name
 
-Quarto can also nicely display multiple figures simultaneously. For example, we may want to plot the occurrence of names over time in two plots. Here we choose Peter, Samuel, and Gorka for one figure and Daniel and Sarah for the other. 
+Here we plot the frequency of our names over time.
+
+::: {.callout-note appearance="minimal"}
+**Exercise**
+
+-   Add your name to the plot
+:::
+
 
 ```{python}
 #| label: fig-names-over-time
-#| layout-ncol: 2
 #| fig-cap: "Popularity of names over time."
-#| fig-subcap:
-#|   - "Peter, Samuel, and Gorka"
-#|   - "Daniel and Sarah"
 #| message: false
 
-# first figure
-fig, ax = plt.subplots(1, 1, figsize=(4,4))
-first = datclean[datclean["name"].isin(["Peter", "Samuel", "Gorka"])]
-sns.lineplot(data=first, x="year", y="births", hue="name", marker="o", ax=ax)
-
-# second figure
-fig, ax = plt.subplots(1, 1, figsize=(4,4))
-second = datclean[datclean["name"].isin(["Daniel", "Sarah"])]
-sns.lineplot(data=second, x="year", y="births", hue="name", marker="o", ax=ax)
+fig, ax = plt.subplots(1, 1, figsize=(6, 4))
+subset = datclean[datclean["name"].isin(["Peter", "Daniel"])]
+sns.lineplot(data=subset, x="year", y="births", hue="name", marker="o", ax=ax)
+ax.set_xlabel("Year")
+ax.set_ylabel("Births")
+plt.tight_layout()
 ```
 
-Since we specified the chunk option `layout-ncol: 2`, both figures are displayed next to each other. Of course, we could have also used Python to create one figure with two subplots using `plt.subplots(1, 2)`. Here, we chose to make two figures to demonstrate the `fig-subcap` chunk option.
+## Reproducibility
 
-::: {.callout-note appearance="minimal"}
-**Optional exercise**
+When creating dynamic reports, it is good practice to document the software versions and other parts of the computational environment. In reports that use the R programming language, a simple yet effective way to document your computational environment is to include the output of `sessionInfo()`. While there is no built-in equivalent in Python, several workarounds exist. For example, the [session-info](https://pypi.org/project/session-info/) package provides similar functionality to R's `sessionInfo()`. Alternatively, you can also print the installed packages using a command from your Python package manager, for example, `!pip freeze` or `!conda list` (the `!` is used to execute shell commands directly from a Python chunk in a Quarto notebook). Yet another option is to manually print the computational environment using only the Python Standard Library:
 
-Add a third plot with your own name!
-:::
+```{python}
+import sys
+import platform
+import importlib.metadata as metadata
+
+print("Python version:", sys.version)
+print("Platform:", platform.platform())
+print("\nInstalled packages:")
+
+for dist in sorted(metadata.distributions(), key=lambda d: d.metadata["Name"].lower()):
+    name = dist.metadata["Name"]
+    version = dist.version
+    print(f"  {name}=={version}")
+
+```
+
+## Bonus content
 
 ### Inline code
 
@@ -299,7 +292,7 @@ Note that, instead of performing computations within an inline code chunk, it is
 Compute the total number of births in the data set and then display it via an inline code chunk.
 :::
 
-## References
+### References
 
 In Quarto, it is also possible to include a bibliography file in BibTeX format (with .bib file extension) to automatically generate citations and a bibliography (<https://quarto.org/docs/authoring/citations.html>). This file has to be specified in the YAML header. In this hands-on, we have a `references.bib` file in the same directory as this .qmd file, so we specify:
 
@@ -324,7 +317,7 @@ A typical entry from a BibTeX bibliography file looks like this:
 }
 ```
 
-These files can either be created manually o with a reference manager (e.g., [Zotero](https://www.zotero.org/)).
+These files can either be created manually or with a reference manager (e.g., [Zotero](https://www.zotero.org/)).
 
 ::: {.callout-note appearance="minimal"}
 **Optional exercise**
@@ -332,33 +325,7 @@ These files can either be created manually o with a reference manager (e.g., [Zo
 Cite one of your favorite papers
 :::
 
-## Reproducibility
-
-When creating dynamic reports, it is good practice to document the software versions and other parts of the computational environment. In reports that use the R programming language, a simple yet effective way to document your computational environment is to include the output of `sessionInfo()`. While there is no built-in equivalent in Python, several workarounds exist. For example, the [session-info](https://pypi.org/project/session-info/) package provides similar functionality to R's `sessionInfo()`. Alternatively, you can also print the installed packages using a command from your Python package manager, for example, `!pip freeze` or `!conda list` (the `!` is used to execute shell commands directly from a Python chunk in a Quarto notebook). Yet another option is to manually print the computational environment using only the Python Standard Library:
-
-```{python}
-import sys
-import platform
-import importlib.metadata as metadata
-
-print("Python version:", sys.version)
-print("Platform:", platform.platform())
-print("\nInstalled packages:")
-
-for dist in sorted(metadata.distributions(), key=lambda d: d.metadata["Name"].lower()):
-    name = dist.metadata["Name"]
-    version = dist.version
-    print(f"  {name}=={version}")
-
-```
-
-::: {.callout-note appearance="minimal"}
-**Optional exercise**
-
-Install the `session-info` package and use it to capture the computational environment for this report. Try also `!pip freeze` in your Quarto notebook. How do the outputs differ? Which option is more reproducible?
-:::
-
-# Practical tips
+### Practical tips
 
 This concludes a first introduction to dynamic reporting with Quarto. Here are some further tips
 
@@ -367,7 +334,7 @@ This concludes a first introduction to dynamic reporting with Quarto. Here are s
 -   Use relative paths so that others can reproduce your report
 -   Always include the computational environment at the bottom of your report to show details on the computational environment (e.g., package versions) used to generate your report <!-- - When sharing your analyses, include a README file that documents all steps necessary to create your report -->
 
-# Gallery (optional)
+### Gallery
 
 The are many examples of dynamically generated reports online. Explore the links below:
 
